@@ -1,4 +1,2 @@
-check process node with pidfile /var/run/node.pid
-start program = "/usr/local/bin/node /srv/www/jallikattu/current/app.js <%=node['serverPort']%>" with timeout 60 seconds
-stop program = "cat /var/run/node.pid|kill"
+check process node_application with pidfile /var/run/node.pid
 if failed host 127.0.0.1 port 80 then restart
