@@ -1,0 +1,19 @@
+#!upstart
+description "Start or Stop test process"
+author "Vigneswaran Murugesan"
+
+start on started mountall
+stop on shutdown
+
+respawn
+respawn limit 99 5
+
+instance $PORT
+
+script
+        export PORT
+        export PID="/var/run/test-$PORT.pid"
+        echo $$ > /var/run/test-$PORT.pid
+        exec /usr/local/bin/test-script.sh $PORT
+
+end script

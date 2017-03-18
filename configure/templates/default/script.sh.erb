@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /srv/www/jallikattu/current/
+
+/usr/local/bin/node srv/www/jallikattu/current/app.js  --port=$1 | tee -a /srv/www/jallikattu/current/log/node.log
