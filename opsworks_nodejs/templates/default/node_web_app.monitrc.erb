@@ -1,4 +1,4 @@
 check process node with pidfile /var/run/node.pid
-start program = "/sbin/start test-server PORT=<%=serverPort%>" with timeout 60 seconds
-stop program = "/sbin/stop test-server PORT=<%=serverPort%>" with timeout 60 seconds
+start program = "/sbin/start test-server PORT=<%=node['serverPort']%>" with timeout 60 seconds
+stop program = "/sbin/stop test-server PORT=<%=node['serverPort']%>" with timeout 60 seconds
 if failed host 127.0.0.1 port 80 then restart	
