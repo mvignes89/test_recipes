@@ -4,16 +4,18 @@ node[:deploy].each do |application, deploy|
     next
   end
  
-template "/usr/local/bin/test-script.sh" do
-    source 'script.sh.erb'
-    mode '0755'
-    owner 'root'
-    group 'root'
- end
+  template "/usr/local/bin/test-script.sh" do
+        source 'script.sh.erb'
+        mode '0755'
+        owner 'root'
+        group 'root'
+    end
 
-  template "/etc/init/test-server.conf" do
-    source 'server.conf.erb'
-    mode '0744'
-    owner 'root'
-    group 'root'
+    template "/etc/init/test-server.conf" do
+      source 'server.conf.erb'
+      mode '0744'
+      owner 'root'
+      group 'root'
+    end
+
   end
